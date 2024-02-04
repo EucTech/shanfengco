@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+/* font-family: 'Lato', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,600;1,700;1,800&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400;1,500;1,900&display=swap');
+/* font-family: 'Roboto', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,700;1,800&display=swap');
+/* font-family: 'Raleway', sans-serif; */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --red: #B80000;
+    --black: #000000;
+    --white: #FFFFFF;
+    --yellow: #FFA732;
+    --background: #F3EDC8;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    padding: 20px 100px;
+    background-color: var(--background);
+}
+
+nav {
+    width: 100%;
+    height: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 500px;
+    /* border: 1px blue solid; */
+}
+
+.navbar nav .logo {
+    height: 100%;
+    display: flex;
+}
+
+.navbar nav .logo a {
+    width: 3em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.navbar nav .logo a img {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar nav .navlinks {
+    /* width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    /* border: 2px rgb(26, 26, 24) solid; */
+}
+
+.navbar nav .navlinks a {
+    color: var(--red);
+    font-family: 'Lato', sans-serif;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    /* padding-bottom: 8px; */
+}
+
+.navbar nav .navlinks a:hover {
+    color: var(--black);
+    border-bottom: 2px var(--red) solid;
+}
+
+.navbar nav .toggle {
+    display: none;
+}
+
+.navbar nav .navlogo {
+    display: none;
+}
+
+/* navbar screen sizes */
+@media only screen and (max-width: 1200px) {
+
+    nav {
+        gap: 300px;
+    } 
+}
+
+@media only screen and (max-width: 900px) {
+
+    nav {
+        gap: 150px;
+    } 
+}
+
+@media only screen and (max-width: 678px) {
+
+    nav {
+        gap: 500px;
+        position: relative;
+    }
+
+    .navbar nav .navlinks {
+        /* display: none; */
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        top: -80em;
+        /* right: -5em; */
+        background-color: rgba(32, 30, 19, 0.781);
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        transition: .5s;
+    }
+
+    .navbar nav .navlinks a {
+        color: var(--yellow);
+        border-top: 2px solid var(--white);
+        width: 100%;
+        padding-top: 25px;
+        text-align: center;
+    }
+
+    .navbar nav .navlinks a:last-of-type {
+        border-bottom: 2px solid var(--white);
+        padding-bottom: 25px;
+    }
+
+    .navbar nav .toggle {
+        display: block;
+        font-size: 40px;
+        color: var(--red);
+    }
+    
+    .navbar nav .toggle .close {
+        display: none;
+    }
+    
+}
+
+@media only screen and (max-width: 640px) {
+    nav {
+        gap: 400px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    nav {
+        gap: 300px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    nav {
+        gap: 200px;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    nav {
+        gap: 100px;
+    }
+}
