@@ -14,9 +14,13 @@
       referrerpolicy="no-referrer"
     />
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'layout.css' %}" />
+    <!-- layout css -->
+    <link rel="stylesheet" href="{% static '/styles/layout.css' %}" />
+    <!-- favicon -->
     <link rel="icon" href="{% static 'images/logo.jpg' %}" />
+
+    <!-- home css -->
+    {% block home_style %} {% endblock %}
 
     {% if title %}
     <title>{{ title }}</title>
@@ -38,9 +42,10 @@
         </div>
         <div class="navlinks">
           <a href="/">Home</a>
-          <a href="/">About Us</a>
+          <a href="/">About</a>
           <a href="/">Services</a>
-          <a href="/">Contact Us</a>
+          <a href="/">Sign Up</a>
+          <!-- <a href="/">Chat Us</a> -->
         </div>
 
         <div class="toggle">
@@ -50,22 +55,79 @@
       </nav>
     </div>
 
-    <footer>
+    <!-- home page -->
+    {% block home %}{% endblock %}
+
+
+
+    <div class="message-form">
       <div class="message-us">
-        <h3>Request a Quote?</h3>
+        <h3>Send us a message</h3>
         <form action="">
-          <input type="text" name="name" placeholder="Name" />
-          <input type="text" name="email" placeholder="Email" />
-          <input type="text" name="company" placeholder="Company" />
-          <input type="text" name="phone" placeholder="Phone" />
-          <div>
+          <div class="info1">
+            <input type="text" name="name" placeholder="Name" />
+            <input type="text" name="email" placeholder="Email" />
+            <input type="text" name="phone" placeholder="Phone" />
+            <input type="text" name="company" placeholder="Company" />
+          </div>
+          <div class="info2">
             <textarea name="message" id="" cols="30" rows="10"></textarea>
             <input type="submit" />
           </div>
         </form>
       </div>
+    </div>
 
-      <div class="last-sec"></div>
+    <footer>
+      <div class="first-last">
+        <div class="logo">
+          <a href="/">
+            <img
+              src="{% static 'images/logo.jpg' %}"
+              alt="shan feng company's logo"
+            />
+          </a>
+        </div>
+        <a href="/"><h3>SHAN FENG COMPANY</h3></a>
+        <div class="location">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>Km 49 Lagos - Ibadan <br>
+            Expressway, after <br>
+            Redeem Camp Keita <br>
+            Village, Ogun State.</p>
+        </div>
+      </div>
+      <div class="sec-last">
+        <h2>COMPANY</h2>
+        <div class="sec-tag">
+          <a href="/">Home</a>
+          <a href="/">About</a>
+          <a href="/">Services</a>
+          <a href="/">Contact</a>
+        </div>
+      </div>
+      <div class="newletter">
+        <p>Subscribe to our newletter</p>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="email" placeholder="Email">
+        <input type="text" name="phone" placeholder="Phone">
+        <input type="text" name="company" placeholder="Company">
+        <input type="submit">
+      </div>
+      <div class="info-sec">
+        <div class="email-info">
+          <i class="fa-solid fa-envelope"></i>
+          <p>info@shanfengcoltd.com</p>
+        </div>
+        <div class="phone-info">
+          <i class="fa-solid fa-phone"></i>
+          <p>09161350728, 08147183678</p>
+        </div>
+        <div class="chat">
+          <a href="/"><i class="fa-solid fa-message"></i></a>
+          <a href="/">Chat us now</a>
+        </div>
+      </div>
     </footer>
 
     <script src="{% static 'scripts/layout.js' %}"></script>

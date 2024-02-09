@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 def home(request):
     context = {'title': 'Shan feng tyre repair company'}
-    return render(request, 'layout.html', context)
+    return render(request, 'home.html', context)
