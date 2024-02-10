@@ -77,9 +77,10 @@ nav {
 
 .navbar nav .navlinks a {
     color: var(--red);
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     border-bottom: 2px solid transparent;
-    font-size: 16px;
+    font-size: 20px;
     white-space: nowrap;
     /* padding-bottom: 8px; */
 }
@@ -184,7 +185,8 @@ nav {
 .message-form .message-us h3 {
     font-size: 40px;
     color: var(--white);
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 .message-form .message-us form {
@@ -223,7 +225,8 @@ nav {
     font-size: 18px;
     font-weight: 600;
     background-color: var(--background);
-    font-family: 'Lato', sans-serif;
+    /* font-family: 'Lato', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
 } 
 
@@ -305,9 +308,9 @@ footer {
     /* align-items: center; */
     justify-content: space-between;
     padding: 60px 100px;
-    margin-top: 100px;
+    /* margin-top: 60px; */
     gap: 60px;
-    background: linear-gradient(to left, #F3EDC8, #cac49e)
+    background: linear-gradient(to left, #F3EDC8, #cac49e);
 }
 
 footer .first-last {
@@ -325,7 +328,8 @@ footer .first-last h3 {
 footer .first-last p {
     color: var(--black);
     font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.2;
 }
 
@@ -378,7 +382,9 @@ footer .sec-last .sec-tag a {
     color: var(--black);
     font-weight: 600;
     opacity: 0.8;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+
 }
 
 footer .sec-last .sec-tag a:hover {
@@ -413,7 +419,9 @@ footer .info-sec .chat {
 footer .info-sec .chat a:last-of-type {
     font-size: 16px;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+
     color: var(--black);
 }
 
@@ -424,7 +432,8 @@ footer .info-sec .chat a:last-of-type:hover {
 footer .info-sec p {
     color: var(--black);
     font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Open Sans', sans-serif; */
+    font-family: 'Poppins', sans-serif;
 }
 
 footer .info-sec i {
@@ -449,9 +458,10 @@ footer .newletter p {
 footer .newletter input {
     border: none;
     outline: none;
-    padding: 8px 10px;
+    padding: 6px 10px;
     font-size: 14px;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
 footer .newletter input::placeholder {
@@ -491,10 +501,27 @@ footer .newletter input:last-of-type:hover {
     footer {
        grid-template-columns: repeat(1, 1fr);
        padding: 60px 50px;
-       margin-top: 60px;
+       /* margin-top: 60px; */
     }
 
     footer .newletter {
         width: 90%;
     }
 }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99; 
+    border: none; 
+    outline: none; 
+    background-image: linear-gradient(to right, #b80000e5, #7a0e0ed7); 
+    color: var(--background);
+    cursor: pointer; 
+    padding: 10px 8px;
+    border-radius: 4px;
+    font-size: 18px;
+    /* transition: .5s; */
+  }

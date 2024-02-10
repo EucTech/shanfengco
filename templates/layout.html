@@ -22,6 +22,15 @@
     <!-- home css -->
     {% block home_style %} {% endblock %}
 
+    <!-- services css -->
+    {% block services_style %} {% endblock %}
+
+    <!-- about css -->
+    {% block about_style %} {% endblock %}
+
+    <!-- contact css -->
+    {% block contact_style %} {% endblock %}
+
     {% if title %}
     <title>{{ title }}</title>
     {% else %}
@@ -42,9 +51,9 @@
         </div>
         <div class="navlinks">
           <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Services</a>
-          <a href="/">Contact</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'services' %}">Services</a>
+          <a href="{% url 'contact' %}">Contact</a>
           <!-- <a href="/">Chat Us</a> -->
         </div>
 
@@ -58,8 +67,16 @@
     <!-- home page -->
     {% block home %}{% endblock %}
 
+    <!-- services page -->
+    {% block services %} {% endblock %}
 
+    <!-- about page -->
+    {% block about %} {% endblock %}
 
+    <!-- contact page -->
+    {% block contact %} {% endblock %}
+
+    {% block message %}
     <div class="message-form">
       <div class="message-us">
         <h3>Send us a message</h3>
@@ -71,12 +88,13 @@
             <input type="text" name="company" placeholder="Company" />
           </div>
           <div class="info2">
-            <textarea name="message" id="" cols="30" rows="10"></textarea>
+            <textarea name="message" placeholder="Type message" id="" cols="30" rows="10"></textarea>
             <input type="submit" />
           </div>
         </form>
       </div>
     </div>
+    {% endblock %}
 
     <footer>
       <div class="first-last">
@@ -101,9 +119,9 @@
         <h2>COMPANY</h2>
         <div class="sec-tag">
           <a href="/">Home</a>
-          <a href="/">About</a>
-          <a href="/">Services</a>
-          <a href="/">Contact</a>
+          <a href="{% url 'about' %}">About</a>
+          <a href="{% url 'services' %}">Services</a>
+          <a href="{% url 'contact' %}">Contact</a>
         </div>
       </div>
       <div class="newletter">
@@ -129,7 +147,7 @@
         </div>
       </div>
     </footer>
-
+    <i class="fa-solid fa-arrow-up" onclick="topFunction()" id="myBtn"></i>
     <script src="{% static 'scripts/layout.js' %}"></script>
   </body>
 </html>

@@ -64,3 +64,4 @@ $(".testimonies .quotes").owlCarousel({
       },
     },
   });
+

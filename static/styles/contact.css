@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+/* font-family: 'Lato', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* font-family: 'Poppins', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* font-family: 'Open Sans', sans-serif; */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --red: #B80000;
+    --black: #000000;
+    --white: #FFFFFF;
+    --yellow: #FFA732;
+    --background: #F3EDC8;
+}
+
+.contact {
+    background-image: linear-gradient(to right, #080808f3, #b80000f6), url('/static/images/caterpilar_tyre.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.contact .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.contact .main h1{
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    padding: 80px 250px 0;
+    color: var(--white);
+}
+
+.contact .messaging {
+    width: 100%;
+    height: 100%;
+    padding: 20px 250px 40px;
+
+}
+
+.contact .messaging form .info1{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.contact .messaging form .info1 div{
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+.contact .messaging form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact .messaging form .info1 div label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; 
+    font-weight: 600;
+    color: var(--white);
+}
+
+.contact .messaging form .info1 div input{
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(156, 153, 153);
+    padding: 20px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color: white;
+    background-color: transparent;
+}
+
+.contact .messaging form .info1 div input:hover {
+    border-bottom: 2px solid var(--white);
+}
+
+.contact .messaging form .comment{
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+}
+
+.contact .messaging form .comment label{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; 
+    font-weight: 600;
+    color: var(--white);
+}
+
+.contact .messaging form .comment textarea {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(156, 153, 153);
+    padding: 20px 0 50px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    background-color: transparent;
+    color: white;
+}
+
+.contact .messaging form .comment textarea:hover {
+    border-bottom: 2px solid var(--white);
+
+}
+
+.contact .messaging form .comment input{
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 16px;
+    color: var(--black);
+    background-color: rgba(255, 255, 255, 0.719);
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.contact .messaging form .comment input:hover {
+    background-color: #e2dbdb;
+}
+
+/* contact messaging screen sizes */
+
+@media only screen and (max-width: 1100px) {
+    .contact .messaging {
+        padding: 20px 180px 40px;
+    }
+
+    .contact .main h1 {
+        padding: 80px 180px 0;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .contact .messaging {
+        padding: 20px 130px 40px;
+    }
+
+    .contact .main h1 {
+        padding: 80px 130px 0;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contact .messaging form .info1 {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+    }
+}
+
+@media only screen and (max-width: 687px) {
+    .contact .messaging {
+        padding: 20px 90px 40px;
+    }
+
+    .contact .main h1 {
+        padding: 80px 90px 0;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .contact .messaging {
+        padding: 20px 50px 40px;
+    }
+
+    .contact .main h1 {
+        padding: 80px 50px 0;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contact .messaging {
+        padding: 20px 20px 40px;
+    }
+
+    .contact .main h1 {
+        padding: 80px 20px 0;
+    }
+}
+
+
+
+/* .contact .info {
+    border-top: 3px rgba(255, 255, 255, 0.719) solid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 20px 60px;
+    margin-top: 40px;
+}
+
+
+.contact .info .company-addr, .info-email, .info-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact .info p {
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+.contact .info i {
+    color: rgb(156, 153, 153);
+    font-size: 24px;
+}
+
+.contact .info h4 {
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.contact .info a {
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+} */

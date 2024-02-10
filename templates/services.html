@@ -1,0 +1,97 @@
+{% extends "layout.html" %} {% load static %} {% block services_style %}
+<link rel="stylesheet" href="{% static 'styles/services.css' %}" />
+{% endblock %} {% block services %}
+<section class="services">
+  <div class="main">
+    <h1>OUR SERVICES</h1>
+    <p>
+      At Shan feng company, we understand the importance of keeping your fleet
+      rolling. As a leader in truck tire repair and maintenance, we specialize
+      in fixing punctured, torn, and scratched tires, ensuring your vehicles
+      stay on the road and your operations run smoothly.
+    </p>
+  </div>
+
+  <div class="choose">
+    <h2>Why Choose Us?</h2>
+    <div>
+      <i class="fa-solid fa-circle-dot"></i>
+      <p>
+        <span>Expertise:</span> With years of experience in the industry, our
+        technicians are highly skilled and trained to handle a wide range of
+        tire issues efficiently.
+      </p>
+    </div>
+    <div>
+      <i class="fa-solid fa-circle-dot"></i>
+      <p>
+        <span>Quick Turnaround:</span> We know that downtime costs money. That's
+        why we strive to provide fast and reliable service, getting your trucks
+        back on the road in no time.
+      </p>
+    </div>
+    <div>
+      <i class="fa-solid fa-circle-dot"></i>
+      <p>
+        <span>Quality Materials:</span> We use only the highest quality
+        materials and equipment to ensure lasting repairs that you can count on.
+      </p>
+    </div>
+    <div>
+      <i class="fa-solid fa-circle-dot"></i>
+      <p>
+        <span>Wide Range of Services:</span> From simple puncture repairs to
+        more complex tear and scratch fixes, we offer comprehensive solutions to
+        suit your needs.
+      </p>
+    </div>
+  </div>
+
+  <div class="tire-sizes">
+    <h2>Types of Tires and Sizes We Repair</h2>
+    <h3>Tube Tires</h3>
+    <div class="sizes">
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>12.00R20</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>11.00R20</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>10.00R20</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>17.5-25</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>20.5-25</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>23.5-25</p>
+      </div>
+    </div>
+
+    <h3>Tubeless Tires</h3>
+    <div class="sizes">
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>315/80R22.5</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>12R22.5</p>
+      </div>
+      <div class="tire">
+        <i class="fa-solid fa-circle-dot"></i>
+        <p>11R22.5</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
