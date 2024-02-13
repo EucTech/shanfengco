@@ -50,3 +50,12 @@ navlinksA.forEach(links => {
     document.body.scrollTo({ top: 0, behavior: 'smooth' }); // For Safari
     document.documentElement.scrollTo({ top: 0, behavior: 'smooth' }); // For Chrome, Firefox, IE and Opera
   }
+
+
+
+  // To hide the messages after 5 seconds
+  setTimeout(function() {
+    document.querySelectorAll('.messages').forEach(function(el) {
+      el.style.display = 'none';
+    });
+  }, 5000); 
