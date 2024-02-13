@@ -1,28 +1,31 @@
 {% extends "layout.html" %} {% load static %} {% block about_style %}
+<!-- aos animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link rel="stylesheet" href="{% static 'styles/about.css' %}" />
 {% endblock %} {% block about %}
 
 <section class="about">
   <h1>ABOUT US</h1>
   <div class="main">
-    <div class="about-image">
+    <div class="about-image" data-aos="flip-up" data-aos-duration="1000">
         <img src="{% static 'images/tire.jpg' %}" alt="">
     </div>
     <div class="write-up">
-      <p>
+      <p data-aos="fade-left" data-aos-duration="1500">
         <span>Shan Feng Company Limited was registered and started operation in year
         2023.</span> We are the foremost company in Nigeria specializing in repairing
         scratched, torn, and punctured tires for both trucks and heavy-duty
         vehicles.
       </p>
 
-      <p>
+      <p data-aos="fade-left" data-aos-duration="1300">
         At Shan Feng Co. Ltd, we understand that tires play a crucial role in
         the safety and performance of your vehicle, directly affecting your
         service delivery and operations.
       </p>
 
-      <p>
+      <p data-aos="fade-left" data-aos-duration="1100">
         Due to the poor road conditions in Nigeria and drivers' attitudes, some
         tires become scratched, punctured, or torn just a few days after being
         installed on a vehicle. Originally, they would be disposed of as scrap
@@ -30,11 +33,19 @@
         caused a significant increase in the cost of maintaining a truck.
       </p>
 
-      <p>
+      <p data-aos="fade-left" data-aos-duration="900">
         Now, you don't have to worry anymore—Shan Feng Co. Ltd is here to repair
         your damaged tires, reducing the extra cost of purchasing new ones.
       </p>
     </div>
   </div>
 </section>
+
+<!-- aos animation script -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
 {% endblock %}

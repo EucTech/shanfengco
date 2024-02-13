@@ -1,8 +1,11 @@
 {% extends "layout.html" %} {% load static %} {% block services_style %}
+<!-- aos animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <link rel="stylesheet" href="{% static 'styles/services.css' %}" />
 {% endblock %} {% block services %}
 <section class="services">
-  <div class="main">
+  <div class="main" data-aos="fade-left" data-aos-duration="1500">
     <h1>OUR SERVICES</h1>
     <p>
       At Shan feng company, we understand the importance of keeping your fleet
@@ -12,7 +15,7 @@
     </p>
   </div>
 
-  <div class="choose">
+  <div class="choose" data-aos="fade-right" data-aos-duration="1500">
     <h2>Why Choose Us?</h2>
     <div>
       <i class="fa-solid fa-circle-dot"></i>
@@ -47,7 +50,7 @@
     </div>
   </div>
 
-  <div class="tire-sizes">
+  <div class="tire-sizes" data-aos="fade-left" data-aos-duration="1500">
     <h2>Types of Tires and Sizes We Repair</h2>
     <h3>Tube Tires</h3>
     <div class="sizes">
@@ -94,4 +97,12 @@
     </div>
   </div>
 </section>
+
+<!-- aos animation script -->
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
 {% endblock %}

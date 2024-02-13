@@ -6,28 +6,37 @@
   <div class="main">
     <h1>Contact Us</h1>
     <div class="messaging">
-      <form action="">
+      <form method="post">
+        {% csrf_token %}
         <div class="info1">
           <div>
             <label for="name">Your Name</label>
-            <input type="text" name="name" placeholder="Full Name" />
+            <!-- <input type="text" name="name" placeholder="Full Name" /> -->
+            {{ form.full_name }}
+
           </div>
           <div>
             <label for="email">Email Address</label>
-            <input type="text" name="email" placeholder="Email Address" />
+            <!-- <input type="text" name="email" placeholder="Email Address" /> -->
+            {{ form.email }}
+
           </div>
           <div>
             <label for="phone">Phone</label>
-            <input type="text" name="phone" placeholder="Phone Number" />
+            <!-- <input type="text" name="phone" placeholder="Phone Number" /> -->
+            {{ form.phone }}
           </div>
           <div>
             <label for="company">Company</label>
-            <input type="text" name="company" placeholder="Company" />
+            <!-- <input type="text" name="company" placeholder="Company" /> -->
+            {{ form.company }}
+
           </div>
         </div>
         <div class="comment">
           <label for="message">Message</label>
-          <textarea name="message" placeholder="Type Message" id=""></textarea>
+          <!-- <textarea name="message" placeholder="Type Message" id=""></textarea> -->
+          {{ form.message }}
           <input type="submit" value="send message"/>
         </div>
       </form>

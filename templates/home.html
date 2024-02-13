@@ -3,6 +3,10 @@
 {% block home_style %}
 <link rel="stylesheet" href="{% static 'styles/home.css' %}" />
 <link rel="stylesheet" href="{% static 'styles/owl-carousel.css' %}" />
+
+<!-- aos animation -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 <!-- slick carousel -->
 <link
   rel="stylesheet"
@@ -24,11 +28,11 @@
 {% block home %}
 <section class="hero">
   <div class="main">
-    <div class="heading">
+    <div class="heading" data-aos="fade-right" data-aos-duration="1000">
       <h1>Expert Truck Tire Repair Services</h1>
       <h4>Revitalize Your Fleet's Performance</h4>
     </div>
-    <div class="info">
+    <div class="info" data-aos="fade-left" data-aos-duration="1000">
       <p>
         At Shan feng company, we understand the critical role that reliable
         tires play in keeping your fleet moving smoothly. With our specialized
@@ -36,8 +40,8 @@
         ready to tackle the road ahead, no matter the challenge.
       </p>
     </div>
-    <div class="chat">
-      <a href="/">CHAT US NOW</a>
+    <div class="chat" data-aos="fade-up" data-aos-duration="1000">
+      <a href="https://wa.me/+234">CHAT US NOW</a>
     </div>
   </div>
 </section>
@@ -78,11 +82,11 @@
 </section>
 
 <section class="mission">
-  <div class="main">
+  <div class="main" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-sine">
     <h1>WE ARE <br> SHAN FENG COMPANY</h1>
     <h2>WE ARE SHAN FENG COMPANY</h2>
   </div>
-  <div class="mission-text">
+  <div class="mission-text" data-aos="fade-left" data-aos-duration="1000">
     <h5>
       We are a company specializing in truck tires and heavy-duty truck tire
       repair and maintenance workshops. We specialize in repairing scratched,
@@ -133,25 +137,13 @@
   </div>
 </section>
 
+<!-- aos animation script -->
 
-<!-- <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-  integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.4.1/jquery-migrate.min.js"
-  integrity="sha512-KgffulL3mxrOsDicgQWA11O6q6oKeWcV00VxgfJw4TcM8XRQT8Df9EsrYxDf7tpVpfl3qcYD96BpyPvA4d1FDQ=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"
-  integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
-></script> -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  AOS.init();
+</script>
 
 <script src="{% static 'scripts/jquery.js' %}"></script>
 
