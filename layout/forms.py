@@ -29,10 +29,10 @@ class NewsletterForm(forms.ModelForm):
             'company': forms.TextInput(attrs={'placeholder': 'Company'}),
         }
 
-    def clean_email(self):
-        """This is to check if there is two emails"""
-        email = self.cleaned_data['email']
-        if Newsletter.objects.filter(email=email).exists():
-            raise ValidationError("Email address is already exists.")
-        return email
+    # def clean_email(self):
+    #     """This is to check if there is two emails"""
+    #     email = self.cleaned_data['email']
+    #     if Newsletter.objects.filter(email=email).exists():
+    #         raise ValidationError("Email address already exists.")
+    #     return email
 
