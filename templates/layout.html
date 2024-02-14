@@ -16,6 +16,11 @@
   <!-- favicon -->
   <link rel="icon" href="{% static 'images/logo.jpg' %}" />
 
+  <!-- jqery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <!-- home css -->
   {% block home_style %} {% endblock %}
 
@@ -93,7 +98,7 @@
   <div class="message-form">
     <div class="message-us">
       <h3>Send us a message</h3>
-      <form method="post">
+      <form method="post" id="myForm">
         {% csrf_token %}
         <div class="info1">
           <!-- <input type="text" name="name" placeholder="Full Name" />
@@ -107,8 +112,9 @@
         </div>
         <div class="info2">
           {{ form.message }}
+          <p id="message" style="display: none; color: #fff; font-size: 16px;"></p>
           <!-- <textarea name="message" placeholder="Type message" id="" ></textarea> -->
-          <input type="submit" name="message-submit" value="send message" />
+          <input type="submit" name="message-submit" id="message-submit" value="send message" />
         </div>
       </form>
     </div>
@@ -144,7 +150,7 @@
         <a href="{% url 'contact' %}">Contact</a>
       </div>
     </div>
-    <form class="newletter" method="post">
+    <form class="newletter" id="mynewsletter" method="post">
       {% csrf_token %}
       <p>Subscribe to our newletter</p>
       {{ news_form.full_name }}
@@ -158,7 +164,8 @@
       {% endif %}
       {{ news_form.phone }}
       {{ news_form.company }}
-      <input type="submit" name="newsletter-submit" value="Subscribe" />
+      <h5 id="news-message" ></h5>
+      <input type="submit" name="newsletter-submit" id="newsletter-submit" value="Subscribe" />
     </form>
     <div class="info-sec">
       <div class="email-info">

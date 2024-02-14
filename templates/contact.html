@@ -1,12 +1,19 @@
-{% extends "layout.html" %} {% load static %} {% block contact_style %}
+{% extends "layout.html" %}
+{% load static %} 
+{% block contact_style %}
 <link rel="stylesheet" href="{% static 'styles/contact.css' %}" />
 {% endblock %} {% block contact %}
+
+ <!-- jqery -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+ integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <section class="contact">
   <div class="main">
     <h1>Contact Us</h1>
     <div class="messaging">
-      <form method="post">
+      <form method="post" id="myForm" >
         {% csrf_token %}
         <div class="info1">
           <div>
@@ -37,7 +44,8 @@
           <label for="message">Message</label>
           <!-- <textarea name="message" placeholder="Type Message" id=""></textarea> -->
           {{ form.message }}
-          <input type="submit" value="send message"/>
+          <p id="message" style="display: none; color: #fff; font-size: 16px;"></p>
+          <input type="submit" value="send message" id="message-submit" />
         </div>
       </form>
     </div>
@@ -64,4 +72,9 @@
     </div>
   </div> -->
 </section>
-{% block message %}{% endblock %} {% endblock %}
+
+<script src="{% static 'scripts/home.js' %}"></script>
+
+{% block message %}{% endblock %}
+
+{% endblock %}

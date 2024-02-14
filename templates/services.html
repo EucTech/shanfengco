@@ -1,9 +1,13 @@
-{% extends "layout.html" %} {% load static %} {% block services_style %}
+{% extends "layout.html" %}
+{% load static %}
+{% block services_style %}
 <!-- aos animation -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <link rel="stylesheet" href="{% static 'styles/services.css' %}" />
-{% endblock %} {% block services %}
+{% endblock %}
+
+{% block services %}
 <section class="services">
   <div class="main" data-aos="fade-left" data-aos-duration="1500">
     <h1>OUR SERVICES</h1>

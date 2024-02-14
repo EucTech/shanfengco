@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- email css -->
+    <link rel="stylesheet" href="{% static '/styles/email.css' %}" />
+
+    <title>Email</title>
+</head>
+
+<body>
+    <div>
+        <img src="{% static 'images/logo.jpg' %}" alt="shan feng company's logo" />
+        <h2>Shan feng tire repair company</h2>
+    </div>
+
+    <h3>Receive message from:</h3>
+    <p>Name: {{ name }}</p>
+    <p>Email: {{ email }}</p>
+    <p>Company: {{ company }}</p>
+    <br>
+    <hr><br>
+
+    <p>Message: <br><br> {{ message }}</p>
+
+</body>
+
+</html>
