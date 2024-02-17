@@ -101,13 +101,14 @@ $(document).ready(function () {
       }
     });
   });
-});
 
+});
 
 
 // For newsletter section
 
 $(document).ready(function () {
+
   $('#mynewsletter').submit(function (event) {
     event.preventDefault();
 
@@ -125,17 +126,22 @@ $(document).ready(function () {
       url: '/home/',
       data: formData,
       success: function (response) {
-        console.log('Message sent successfully');
-        $('#news-message').text('You have subscribed to our newsletter!').show();
-        // Clear form values
+        console.log('subscribed');
+        $('#news-message').text('Subscribed successfully!').show();
         $('#mynewsletter')[0].reset();
       },
       error: function (xhr, status, error) {
-        console.error('Error:', error)
+        console.error('Error:', error);
+        console.log('Message sent error');
       },
       complete: function () {
         $('#newsletter-submit').val(submitvalue);
+        // $('#mynewsletter')[0].reset();
+
       }
     });
   });
+
+
 });
+
