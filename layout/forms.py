@@ -33,6 +33,6 @@ class NewsletterForm(forms.ModelForm):
     #     """This is to check if there is two emails"""
     #     email = self.cleaned_data['email']
     #     if Newsletter.objects.filter(email=email).exists():
-    #         raise ValidationError("Email address already exists.")
+    #         raise forms.ValidationError("Email address already exists.")
     #     return email
 
