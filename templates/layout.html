@@ -17,9 +17,9 @@
   <link rel="icon" href="{% static 'images/logo.jpg' %}" />
 
   <!-- jqery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 
   <!-- home css -->
   {% block home_style %} {% endblock %}
@@ -129,7 +129,7 @@
         </a>
       </div>
       <a href="/">
-        <h3>SHAN FENG COMPANY</h3>
+        <h3>SHAN FENG CO.LTD</h3>
       </a>
       <div class="location">
         <i class="fa-solid fa-location-dot"></i>
@@ -155,6 +155,7 @@
       <p>Subscribe to our newletter</p>
       {{ news_form.full_name }}
       {{ news_form.email }}
+      <!-- <small id="em" style="color: black; font-size: 20px; display: none"></small> -->
       {% if news_form.email.errors %}
       <div class="invalid-feedback">
         {% for error in news_form.email.errors %}
@@ -183,6 +184,8 @@
     </div>
   </footer>
   <i class="fa-solid fa-arrow-up" onclick="topFunction()" id="myBtn"></i>
+
+  <script src="{% static 'scripts/jquery.js' %}"></script>
 
   <script src="{% static 'scripts/layout.js' %}"></script>
 </body>
