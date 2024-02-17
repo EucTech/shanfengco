@@ -23,6 +23,15 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+# EMAIL_HOST_USER = '9137bca1b59d1c'
+# EMAIL_HOST_PASSWORD = '021ed36d25d0b4'
+# EMAIL_PORT = '2525'
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
