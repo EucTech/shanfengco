@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 MESSAGE_TAGS = {
@@ -23,13 +26,15 @@ MESSAGE_TAGS = {
         messages.ERROR: 'alert-danger',
  }
 
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-# EMAIL_HOST_USER = '9137bca1b59d1c'
-# EMAIL_HOST_PASSWORD = '021ed36d25d0b4'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_FROM = os.environ.get('EMAIL_FROM')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 # EMAIL_PORT = '2525'
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
+EMAIL_PORT = 587
+# EMAIL_PORT = 465
+EMAIL_USE_TLS = True
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,7 +45,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(y_@-zgohrdk5=!8b)_e_=n&j&jibzn7&n-f+tug0t4b^k@#31'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -96,8 +101,13 @@ WSGI_APPLICATION = 'shanfengproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER':  os.environ.get('DATABASE_USER'),  
+        'PASSWORD': os.environ.get('DATABASE_PWD'),  
+        'HOST': 'localhost',   
     }
 }
 
