@@ -73,75 +73,66 @@ function topFunction() {
 $(document).ready(function () {
   $('#myForm').submit(function (event) {
     event.preventDefault();
-
     // get submit original value in html
     let submitvalue = $('#message-submit').val();
-
     // set the value to loading when submiting
     $('#message-submit').val('Loading.......');
-
     let formData = $(this).serialize();
     console.log(formData);
-
     $.ajax({
       type: 'POST',
-      url: '/home/',
+      url: '/messages_form/',
       data: formData,
-      success: function (response) {
+      contentType: 'application/x-www-form-urlencoded',
+      success: function (response, textStatus, xhr) {
+        if (xhr.status === 200)
         console.log('Message sent successfully');
-        $('#message').text('Your message has been sent successfully!').show();
-        // Clear form values
+        $('#message').text(response.message).show();
         $('#myForm')[0].reset();
+        $('#message-submit').val(submitvalue);
       },
       error: function (xhr, status, error) {
         console.error('Error:', error)
       },
-      complete: function () {
-        $('#message-submit').val(submitvalue);
-      }
     });
   });
-
 });
 
 
 // For newsletter section
 
 $(document).ready(function () {
-
   $('#mynewsletter').submit(function (event) {
     event.preventDefault();
-
     // get submit original value in html
     let submitvalue = $('#newsletter-submit').val();
-
     // set the value to loading when submiting
     $('#newsletter-submit').val('Loading.......');
-
     let formData = $(this).serialize();
     console.log(formData);
-
     $.ajax({
       type: 'POST',
-      url: '/home/',
+      url: '/subscribe/',
       data: formData,
-      success: function (response) {
-        console.log('subscribed');
-        $('#news-message').text('Subscribed successfully!').show();
-        $('#mynewsletter')[0].reset();
+      contentType: 'application/x-www-form-urlencoded',
+      success: function (response, textStatus, xhr) {
+        if (xhr.status === 200){
+          console.log('subscribed');
+          $('#news-message').text(response.message).show();
+          $('#mynewsletter')[0].reset();
+          $('#em').hide();
+          $('#newsletter-submit').val(submitvalue);
+        }
       },
-      error: function (xhr, status, error) {
-        console.error('Error:', error);
-        console.log('Message sent error');
+      error: function (xhr) {
+        console.error('Error:', xhr.statusText);
+        if (xhr.status === 400) {
+          let responseJson = JSON.parse(xhr.responseText);
+          $('#em').text(responseJson.message).show();
+          $('#newsletter-submit').val(submitvalue);
+        }
       },
-      complete: function () {
-        $('#newsletter-submit').val(submitvalue);
-        // $('#mynewsletter')[0].reset();
-
-      }
     });
   });
-
-
 });
 
