@@ -7,25 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- email css -->
-    <link rel="stylesheet" href="{% static '/styles/email.css' %}" />
+    <link rel="stylesheet" href="/static/styles/email.css" />
 
     <title>Email</title>
 </head>
 
 <body>
-    <div>
-        <img src="{% static 'images/logo.jpg' %}" alt="shan feng company's logo" />
-        <h2>Shan feng tire repair company</h2>
+    <div class="main">
+        <div class="logo">
+            <!-- <img src="/static/images/logo.jpg" alt="shan feng company's logo" /> -->
+            <img src="{% static 'images/logo.jpg' %}" alt="Logo" style="max-width: 100%; height: auto;">
     </div>
-
-    <h3>Receive message from:</h3>
-    <p>Name: {{ name }}</p>
-    <p>Email: {{ email }}</p>
-    <p>Company: {{ company }}</p>
-    <br>
-    <hr><br>
-
-    <p>Message: <br><br> {{ message }}</p>
+            <h2 style="color: brown; font-size: 16px;">Shan feng tire repair company</h2>
+        </div>
+    
+        <h3>Receive message from:</h3>
+        <p style="color: blue;"><span>Name:</span> {{ name }}</p>
+        <p><span>Email:</span> {{ email }}</p>
+        <p><span>Company:</span> {{ company }}</p>
+        <br>
+        <hr><br>
+    
+        <p><span>Message:</span> <br><br> {{ message }}</p>
+    </div>
 
 </body>
 

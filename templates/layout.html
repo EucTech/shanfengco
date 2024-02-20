@@ -62,17 +62,6 @@
     </nav>
   </div>
 
-  <!-- {% for message in messages %}
-  <div class="container-fluid p-0">
-    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        <span aria-hidden="True">&times;</span>
-      </button>
-      {{ message }}
-    </div>
-  </div>
-  {% endfor %} -->
-
   {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -155,7 +144,7 @@
       <p>Subscribe to our newletter</p>
       {{ news_form.full_name }}
       {{ news_form.email }}
-      <!-- <small id="em" style="color: black; font-size: 20px; display: none"></small> -->
+      <small id="em"></small>
       {% if news_form.email.errors %}
       <div class="invalid-feedback">
         {% for error in news_form.email.errors %}
@@ -163,7 +152,6 @@
         {% endfor %}
       </div>
       {% endif %}
-      {{ news_form.phone }}
       {{ news_form.company }}
       <h5 id="news-message" ></h5>
       <input type="submit" name="newsletter-submit" id="newsletter-submit" value="Subscribe" />
