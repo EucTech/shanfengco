@@ -480,7 +480,7 @@ footer .newletter p {
     padding-bottom: 20px;
 }
 
-footer .newletter h5 {
+footer .newletter h5, .newletter small{
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     text-align: center;
