@@ -11,7 +11,6 @@ class Messages(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(default=datetime.utcnow)
 
-
     class Meta:
         db_table = "messages"
 
@@ -22,13 +21,9 @@ class Messages(models.Model):
 class Newsletter(models.Model):
     """This is a model for newsletter"""
     full_name = models.CharField(max_length=200)
-    email = models.EmailField(unique=False)
-    phone = models.CharField(max_length=15)
+    email = models.EmailField(unique=True)
     company = models.CharField(max_length=200)
     join_at = models.DateTimeField(default=datetime.utcnow)
 
-
     class Meta:
         db_table = "newsletter"
-
-    
