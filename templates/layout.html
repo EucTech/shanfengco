@@ -31,7 +31,9 @@
   {% block about_style %} {% endblock %}
 
   <!-- contact css -->
-  {% block contact_style %} {% endblock %} {% if title %}
+  {% block contact_style %} {% endblock %}
+  
+  {% if title %}
   <title>{{ title }}</title>
   {% else %}
   <title>shan feng</title>
@@ -80,8 +82,8 @@
   {% block about %} {% endblock %}
 
   <!-- contact page -->
-  {% block contact %}
-  {% endblock %}
+  {% block contact %}{% endblock %}
+  
 
   {% block message %}
   <div class="message-form">

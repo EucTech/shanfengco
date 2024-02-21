@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+    
+        section {
+            width: 100%;
+            height: 100%;
+            border: 1px blue solid;
+            display: flex;
+            align-items: center;
+        }
+    
+        div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            border: 1px red solid;
+    
+        }
+    
+        h1 {
+            color: #B80000;
+            font-family: 'Poppins', sans-serif;
+        }
+    
+        a {
+            text-decoration: none;
+            background-color: #B80000;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+    
+        }
+    </style>
+    
+    <section>
+        <div>
+            <h1>Oops! The page you were looking for doesnt't exist</h1>
+            <a href="{% url 'home' %}">Back to Home</a>
+        </div>
+    </section>
+</body>
+</html>
