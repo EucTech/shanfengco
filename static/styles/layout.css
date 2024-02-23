@@ -480,13 +480,21 @@ footer .newletter p {
     padding-bottom: 20px;
 }
 
-footer .newletter h5, .newletter small{
+footer .newletter h5 {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     text-align: center;
     display: none;
     color: var(--red);
     margin-top: 10px;
+}
+
+footer .newletter small{
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+    color: var(--red);
 }
 
 footer .newletter input {

@@ -1,6 +1,9 @@
+from typing import Any
 from django import forms
 from .models import Messages, Newsletter
-from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class MessageForm(forms.ModelForm):
@@ -28,3 +31,22 @@ class NewsletterForm(forms.ModelForm):
             'company': forms.TextInput(attrs={'placeholder': 'Company'}),
         }
 
+
+class RegisterForm(UserCreationForm):
+    username = forms.CharField(max_length=100)
+    is_admin = forms.BooleanField(label="Is Admin", required=False)
+
+    class Meta:
+        model = User
+        fields = ['username', 'is_admin', 'password1', 'password2']
+
+
+class CustomAuthForm(AuthenticationForm):
+    error_messages = {
+        'invalid_login': 'Please enter a correct username and password.'
+    }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['placeholder']= 'Username'
+        self.fields['password'].widget.attrs['placeholder']= 'Password'
