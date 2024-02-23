@@ -53,6 +53,17 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_SAVE_EVERY_REQUEST = True
+
+
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 3,
+    'MARGIN_PAGES_DISPLAYED': 2,
+
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -62,7 +73,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'layout'
+    'layout',
+    'pure_pagination'
 ]
 
 MIDDLEWARE = [
