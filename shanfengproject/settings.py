@@ -19,14 +19,16 @@ load_dotenv()
 
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
- }
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST = os.environ.get('EMAIL_HOST')
 EMAIL_FROM = os.environ.get('EMAIL_FROM')
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
@@ -57,11 +59,13 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_SAVE_EVERY_REQUEST = True
 
 
-PAGINATION_SETTINGS = {
-    'PAGE_RANGE_DISPLAYED': 3,
-    'MARGIN_PAGES_DISPLAYED': 2,
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-    'SHOW_FIRST_PAGE_WHEN_INVALID': True,
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 250,
+    'width': 800,
 }
 
 # Application definition
@@ -74,7 +78,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'layout',
-    'pure_pagination'
+    'tinymce',
+    "crispy_forms",
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -117,9 +123,9 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.environ.get('DATABASE_NAME'),
-        'USER':  os.environ.get('DATABASE_USER'),  
-        'PASSWORD': os.environ.get('DATABASE_PWD'),  
-        'HOST': 'localhost',   
+        'USER':  os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PWD'),
+        'HOST': 'localhost',
     }
 }
 

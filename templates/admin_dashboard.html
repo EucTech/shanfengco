@@ -1,10 +1,15 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -23,14 +28,22 @@
     <nav>
         <div class="main">
             <img src="{% static 'images/logo.jpg' %}" alt="shan feng company's logo" />
-            <h3>SHAN FENG COMPANY DASHBOARD</h3>
+            <h3>DASHBOARD</h3>
         </div>
     </nav>
+
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
     <section class="dashboard-main">
         <div class="main-keys">
             <ul>
-                <li id="messages"><i class="fa-solid fa-message"></i> &nbsp; &nbsp; Messages</li>
+                <li id="messages" class="active"><i class="fa-solid fa-message"></i> &nbsp; &nbsp; Messages</li>
                 <li id="newsletter"><i class="fa-solid fa-envelope"></i> &nbsp; &nbsp; Newletters</li>
                 <li id="send-newsletter"><i class="fa-solid fa-paper-plane"></i> &nbsp; &nbsp; Send Newletters</li>
             </ul>
@@ -43,71 +56,113 @@
 
         <div class="dashboard-data">
 
-            <table class="admin-message">
-                <thead>
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Company</th>
-                        <th>Message</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in messages_page_obj %}
-                    <tr>
-                        <td>{{ item.full_name }}</td>
-                        <td>{{ item.email }}</td>
-                        <td>{{ item.phone }}</td>
-                        <td>{{ item.company }}</td>
-                        <td>{{ item.message }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-            <!-- {% for page_num in messages_page_obj.paginator.page_range %}
-            {% if page_num %}
-            {% if messages_page_obj.number == page_num %}
-            <a href="?messages_page={{ page_num }}"
-                style="background-color: #007bff; color: #fff; padding: 5px 10px; margin-bottom: 4px; border-radius: 4px;">{{ page_num }}</a>
-            {% else %}
-            <a href="?messages_page={{ page_num }}"
-                style="background-color: #fff; color: #007bff; border: 1px solid #007bff; padding: 5px 10px; margin-bottom: 4px; border-radius: 4px;">{{ page_num }}</a>
-            {% endif %}
-            {% else %}
-            ...
-            {% endif %}
-            {% endfor %} -->
+            <div class="admin-message">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Company</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in messages_page_obj %}
+                        <tr>
+                            <td>{{ item.full_name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.phone }}</td>
+                            <td>{{ item.company }}</td>
+                            <td>{{ item.message }}</td>
+                            <td style="white-space: nowrap;">{{ item.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
 
-            <table class="admin-newsletter">
-                <thead>
-                    <tr>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Company</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for item in newsletters_page_obj %}
-                    <tr>
-                        <td>{{ item.full_name }}</td>
-                        <td>{{ item.email }}</td>
-                        <td>{{ item.company }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+                {% if is_messages_paginated %}
+                {% if messages_page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?messages_page=1">First</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?messages_page={{ messages_page_obj.previous_page_number }}">Prev</a>
+                {% endif %}
+
+                {% for num in messages_page_obj.paginator.page_range %}
+                {% if messages_page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?messages_page={{ num }}">{{ num }}</a>
+                {% elif num > messages_page_obj.number|add:'-2' and num < messages_page_obj.number|add:'2' %}
+                <a class="btn btn-outline-info mb-4" href="?messages_page={{ num }}">{{ num }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if messages_page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4"
+                    href="?messages_page={{ messages_page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?messages_page={{ messages_page_obj.paginator.num_pages }}">Last</a>
+                {% endif %}
+                {% endif %}
+
+            </div>
+
+            <div class="admin-newsletter">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Company</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in newsletters_page_obj %}
+                        <tr>
+                            <td>{{ item.full_name }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.company }}</td>
+                            <td>{{ item.join_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+
+                {% if is_newsletters_paginated %}
+                {% if newsletters_page_obj.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?newsletters_page=1">First</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?newsletters_page={{ newsletters_page_obj.previous_page_number }}">Prev</a>
+                {% endif %}
+
+                {% for num in newsletters_page_obj.paginator.page_range %}
+                {% if newsletters_page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?newsletters_page={{ num }}">{{ num }}</a>
+                {% elif num > newsletters_page_obj.number|add:'-2' and num < newsletters_page_obj.number|add:'2' %}
+                <a class="btn btn-outline-info mb-4" href="?newsletters_page={{ num }}">{{ num }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if newsletters_page_obj.has_next %}
+                <a class="btn btn-outline-info mb-4"
+                    href="?newsletters_page={{ newsletters_page_obj.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4"
+                    href="?newsletters_page={{ newsletters_page_obj.paginator.num_pages }}">Last</a>
+                {% endif %}
+                {% endif %}
+
+            </div>
 
             <div class="admin-send-newsletter">
-                <legend>Send Newsletter to users</legend>
-                <form action="">
-                    <label for="subject">Subject</label>
-                    <input type="text" name="subject">
-                    <label for="message">Message</label>
-                    <input type="text" name="Message">
-                    
+                <form method="POST">
+                    {% csrf_token %}
+                    <legend>Send Newsletter to Users</legend>
+                    {{ form|crispy }}
+                    {{ form.media }}
+                    <button type="submit">Send Email</button>
                 </form>
             </div>
         </div>
@@ -117,6 +172,16 @@
     <script src="{% static 'scripts/jquery.js' %}"></script>
 
     <script src="{% static 'scripts/admin_dashboard.js' %}"></script>
-</body>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
 
 </html>

@@ -1,9 +1,9 @@
-from typing import Any
 from django import forms
 from .models import Messages, Newsletter
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from tinymce.widgets import TinyMCE
 
 
 class MessageForm(forms.ModelForm):
@@ -48,5 +48,23 @@ class CustomAuthForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['placeholder']= 'Username'
-        self.fields['password'].widget.attrs['placeholder']= 'Password'
+        self.fields['username'].widget.attrs['placeholder'] = 'Username'
+        self.fields['password'].widget.attrs['placeholder'] = 'Password'
+
+
+class PlainTextTinyMCE(TinyMCE):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.attrs['tinymce'] = {
+            'selector': 'textarea',
+            'plugins': 'textcolor',
+            'toolbar': 'undo redo | formatselect | bold italic | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat',
+            'menubar': False,
+            'valid_elements': ''
+        }
+
+
+class SendNewsletter(forms.Form):
+    subject = forms.CharField()
+    receivers = forms.CharField()
+    message = forms.CharField(widget=PlainTextTinyMCE(), label="Email content")

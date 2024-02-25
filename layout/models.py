@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.utils import timezone
 
 
 class Messages(models.Model):
@@ -9,7 +10,7 @@ class Messages(models.Model):
     phone = models.CharField(max_length=15)
     company = models.CharField(max_length=200)
     message = models.TextField()
-    created_at = models.DateTimeField(default=datetime.utcnow)
+    created_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = "messages"
@@ -23,7 +24,7 @@ class Newsletter(models.Model):
     full_name = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     company = models.CharField(max_length=200)
-    join_at = models.DateTimeField(default=datetime.utcnow)
+    join_at = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = "newsletter"
