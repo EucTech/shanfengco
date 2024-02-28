@@ -1,9 +1,15 @@
 asgiref==3.7.2
 backports.zoneinfo==0.2.1
+crispy-bootstrap4==2023.1
 Django==4.2.9
+django-crispy-forms==2.1
 django-environ==0.11.2
+django-pure-pagination==0.3.0
+django-tinymce==3.7.1
+django-tinymce4-lite==1.8.0
 greenlet==3.0.3
 Jinja2==3.1.3
+jsmin==3.0.1
 MarkupSafe==2.1.5
 mysqlclient==2.2.4
 python-dotenv==1.0.1
