@@ -169,7 +169,7 @@ def admin_dashboard(request):
                 mail.attach_alternative(html_content, "text/html")
                 if mail.send():
                     print("success ====>> ")
-                    messages.success(request, "Email sent successfully")
+                    messages.success(request, "Email sent successfully!")
             except Exception as e:
                 print("fail ====>> ")
                 print(str(e))
@@ -186,7 +186,7 @@ def admin_dashboard(request):
     newsletters = Newsletter.objects.order_by('-join_at').all()
 
     # Paginate messages
-    messages_paginator = Paginator(form_messages, 5)
+    messages_paginator = Paginator(form_messages, 10)
     messages_page_number = request.GET.get('messages_page')
     messages_page_obj = messages_paginator.get_page(messages_page_number)
 

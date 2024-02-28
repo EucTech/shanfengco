@@ -577,18 +577,6 @@ footer .newletter input:last-of-type:hover {
     /* margin-bottom: 10px; */
 }
 
-.alert-success {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: var(--red); */
-    background-image: linear-gradient(to right, #b80000e5, #7a0e0ed7);
-    color: var(--white);
-    padding: 4px;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-}
 
 /* .alert-danger {
     width: 100%;

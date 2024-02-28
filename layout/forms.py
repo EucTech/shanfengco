@@ -34,11 +34,12 @@ class NewsletterForm(forms.ModelForm):
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(max_length=100)
+    email = forms.EmailInput()
     is_admin = forms.BooleanField(label="Is Admin", required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'is_admin', 'password1', 'password2']
+        fields = ['username', 'email', 'is_admin', 'password1', 'password2']
 
 
 class CustomAuthForm(AuthenticationForm):
